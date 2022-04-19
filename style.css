@@ -1,57 +1,90 @@
-
-
+/* ANIMATIONS */
 @keyframes stb {
     0% {
         transform: rotate(0deg) scale(0);
         opacity: 0;
-
     }
-
     100% {
         transform: rotate(360deg) scale(1);
         opacity: 1;
-
-
     }
 }
+@keyframes swipeLeft {
+    0%{
+        right: 1000px;
+    }
+    100%{
+        right: 0;
+    }
+}
+@keyframes swipeUp {
+    0%{
+        top: 1000px;
+    }
+    100%{
+        top: 0;
+    }
+}
+@keyframes swipeDown {
+    0%{
+        transform: scale(5);
+        opacity: 0.2;
+    }
+    100%{
+        
+    }
+}
+@keyframes type {
+    to{
+        left: 100%;
+        width: 0;
+    }
+}
+@keyframes blink {
+    0%{
+        border-left: 2px solid #A8C0B1 ;
+    }
+    100%{
+        border-left: 2px solid;
+        opacity: 1;
+        
+    }
+}
+/* 
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+*/
+/*~~~~ TEST CLASSES ~~~~*/
+.border {
+    border: 3px solid red;
+}
+.flex {
+    display: flex;
+}
+.round {
+    border-radius: 50%;
+}
+/* -------------------- */
 
-
+/*~~~~~~~~~~~~~~~~~~~~~~~
+   BODY ELEMENTS CLASSES
+~~~~~~~~~~~~~~~~~~~~~~~~~*/
 body {
     font-family: 'Open Sans', sans-serif;
     background-color: #CBDBD1;
 }
-
 .section1 {
-
-
     position: relative;
     margin-top: 100px;
     height: 700px;
     padding-right: 250px;
-
-
 }
-
 .section1 div {
     position: absolute;
-}
-
-.border {
-    border: 3px solid red;
-}
-
-.flex {
-    display: flex;
-}
-
-.round {
-    border-radius: 50%;
 }
 
 img {
     width: 100%;
 }
-
 .div1 {
     animation: round 3s ease,
         stb 2s ease-in-out;
@@ -60,15 +93,11 @@ img {
     border: 20px solid snow;
     top: 400px;
     left: 150px;
-
 }
-
 .div1 img {
     height: 100%;
 }
-
 .div2 {
-
     animation: round 3s ease,
         stb 2s ease-in-out;
     height: 598px;
@@ -76,32 +105,27 @@ img {
     border: 20px solid #A8C0B1;
     left: 250px;
 }
-
 .div2 img {
     height: 100%;
 }
-
 .div3 {
-    /* animation: round 3s ease,
-    stb 2s ease-in-out ; */
+    
     height: 80px;
     width: 80px;
     border: 25px solid #687F71;
     left: 900px;
     top: 50px;
+    animation: swipeDown 2s ease-in-out 0s 1 forwards ;
 }
-
 .div4 {
     height: 200px;
     width: 200px;
     border: 40px solid #687F71;
     left: 950px;
     top: 400px;
-
+    animation: swipeDown 2s ease-in-out 0s 1 forwards ;
 }
-
 .section2 {
-
     position: relative;
     margin-top: 100px;
     height: 500px;
@@ -109,32 +133,24 @@ img {
     gap: 80px;
     align-items: center;
     padding-right: 60px;
-
 }
-
 .div5 {
+    position: relative;
     height: 300px;
     width: 300px;
     border: 0 solid #687F71;
-
-    top: 1000px;
-
-
-
+    /* top: 1000px; */
+    animation: swipeLeft 1500ms ease 0s 1 forwards;
 }
-
 .div5 img {
     height: 100%;
-
-
 }
-
 .text {
+    position: relative;
     width: 400px;
+    animation: swipeUp 1500ms ease-out 0s 1 forwards ;
 }
-
-h1  {
-    
+h1 {
     position: relative;
     font-size: 4.5rem;
     color: #687F71;
@@ -142,26 +158,33 @@ h1  {
         sans-serif;
     font-weight: 100;
 }
-
-
-
+h1::after{
+    content: '';
+    position: absolute;
+    background-color: #CBDBD1;
+    border-left: #A8C0B1;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    animation: type 2s steps(20)  forwards,
+    blink 500ms ease-in-out infinite;
+    /* border: 1px solid red; */
+}
 button {
     width: 150px;
     height: 40px;
     background-color: #687F71;
     border: 0;
     color: white;
-    margin-left: 120px
+    /* margin-left: 120px; */
+    margin-top: 20px;
+    cursor: pointer;
 }
-
 button:hover {
     background-color: #A8C0B1;
-
 }
-
-
 footer {
-    margin-top: ;
+    margin-top: 70px;
     height: 250px;
     background-color: #89a694d1;
     color: #687F71;
@@ -170,6 +193,43 @@ footer {
     flex-direction: column;
     justify-content: flex-end;
     align-items: center;
-    margin-top: 30px;
-
 }
+@media only screen and (max-width:992px){
+    body{
+        
+    }
+    .div1{
+        width: 200px;
+        height: 200px;
+        /* position: relative; */
+        left: 100px;
+        top: 400px;
+    }
+    .section1{
+        /* height: 100px!important; */
+        margin: 0;
+        padding: 0;
+    }
+    .text{
+        /* float: right; */
+    }
+    .div2{
+        width: 400px;
+        height: 400px;
+        top: 500px;
+        right: 800px;
+    }
+    .div3,.div4{
+        display: none;
+    }
+    .section2{
+        display: block;
+        margin-bottom: 400px;
+    }
+    footer{
+        width: 100%;
+    }
+}
+                                    /*~~~~~~~~~~~~
+                                    HAPPY CODING
+                                    ~~~~~~~~~~~~*/
